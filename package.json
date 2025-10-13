@@ -23,5 +23,12 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "@eslint/eslintrc": "^3"
+  },
+  "packageManager": "pnpm@10.17.1",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10",
+    "npm": "Este projeto não suporta o npm. Use o pnpm. 'npm install -g pnpm'",
+    "yarn": "Este projeto não suporta o yarn. Use o pnpm. 'npm install -g pnpm'"
   }
 }
