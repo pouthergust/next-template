@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Type-check
+echo "🔍 Running type-check..."
+pnpm type-check
+
+# Tests
+echo "🧪 Running tests..."
+pnpm test:run
