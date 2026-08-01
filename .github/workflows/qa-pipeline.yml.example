@@ -1,4 +1,4 @@
-name: QA Pipeline
+name: QA Pipeline Example
 
 on:
   push:
@@ -18,35 +18,40 @@ jobs:
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
-      
-      - name: 📦 Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 10
-      
+
       - name: 🔧 Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
       
       - name: 📚 Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          if [ -f pnpm-lock.yaml ]; then
+            corepack enable
+            pnpm install --frozen-lockfile
+          elif [ -f yarn.lock ]; then
+            corepack enable
+            yarn install --frozen-lockfile
+          elif [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
       
       - name: 🎨 Check code formatting
-        run: pnpm format:check
+        run: npm run format:check
       
       - name: 🔍 Run linting
-        run: pnpm lint
+        run: npm run lint
       
       - name: 🔎 Run type-check
-        run: pnpm type-check
+        run: npm run type-check
       
       - name: 🧪 Run tests
-        run: pnpm test:run
+        run: npm run test:run
       
       - name: 📊 Generate coverage report
-        run: pnpm test:coverage
+        run: npm run test:coverage
       
       - name: 📈 Upload coverage to Codecov (optional)
         uses: codecov/codecov-action@v4
@@ -58,7 +63,7 @@ jobs:
           fail_ci_if_error: false
       
       - name: 🏗️ Build project
-        run: pnpm build
+        run: npm run build
       
       - name: ✅ All checks passed
         run: echo "✅ Quality assurance checks completed successfully!"
@@ -72,23 +77,28 @@ jobs:
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
-      
-      - name: 📦 Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 10
-      
+
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
       
       - name: 📚 Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          if [ -f pnpm-lock.yaml ]; then
+            corepack enable
+            pnpm install --frozen-lockfile
+          elif [ -f yarn.lock ]; then
+            corepack enable
+            yarn install --frozen-lockfile
+          elif [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
       
       - name: 🏗️ Build for production
-        run: pnpm build
+        run: npm run build
       
       - name: ✅ Build successful
         run: echo "✅ Production build completed successfully!"

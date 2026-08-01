@@ -3,8 +3,8 @@
 
 # Type-check
 echo "🔍 Running type-check..."
-pnpm type-check
+npx --no-install tsc --noEmit
 
 # Tests
 echo "🧪 Running tests..."
-pnpm test:run
+npx --no-install vitest run

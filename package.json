@@ -15,7 +15,7 @@
     "test:run": "vitest run",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "validate": "pnpm type-check && pnpm lint && pnpm test:run",
+    "validate": "npm run type-check && npm run lint && npm run test:run",
     "verify-qa": "bash scripts/verify-qa-setup.sh",
     "prepare": "husky"
   },
@@ -47,11 +47,7 @@
     "typescript": "^5",
     "vitest": "^3.2.4"
   },
-  "packageManager": "pnpm@10.17.1",
   "engines": {
-    "node": ">=20",
-    "pnpm": ">=10",
-    "npm": "Este projeto não suporta o npm. Use o pnpm. 'npm install -g pnpm'",
-    "yarn": "Este projeto não suporta o yarn. Use o pnpm. 'npm install -g pnpm'"
+    "node": ">=20"
   }
 }

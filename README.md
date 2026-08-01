@@ -1,6 +1,6 @@
-# Next.js Template with QA Architecture 🛡️
+# Next.js Template with QA Architecture
 
-This is a [Next.js](https://nextjs.org) project with a **complete and automated QA architecture** implemented.
+This is a [Next.js](https://nextjs.org) starter project with a lightweight QA setup and freedom to use the package manager and workflow that best fit your team.
 
 ## ✨ Features
 
@@ -16,8 +16,14 @@ This is a [Next.js](https://nextjs.org) project with a **complete and automated 
 
 ### 1. Install Dependencies
 
+Use your preferred package manager:
+
 ```bash
+npm install
+# or
 pnpm install
+# or
+yarn install
 ```
 
 ### 2. Finalize QA Setup (First Time Only)
@@ -29,14 +35,14 @@ bash scripts/COMANDOS_FINAIS.sh
 ### 3. Start Development
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your app.
 
 ## 🛡️ QA Architecture
 
-This project includes a **complete automated QA pipeline**:
+This project includes a lightweight QA baseline:
 
 - ✅ **Pre-commit hooks** - Lint + Format automatically
 - ✅ **Pre-push hooks** - Type-check + Tests before push
@@ -46,28 +52,29 @@ This project includes a **complete automated QA pipeline**:
 
 ### Essential Commands
 
+Run these scripts with the package manager of your choice (`npm run`, `pnpm`, `yarn`, etc.):
+
 ```bash
 # Development
-pnpm dev              # Start dev server
-pnpm build            # Build for production
-pnpm start            # Start production server
+dev                   # Start dev server
+build                 # Build for production
+start                 # Start production server
 
 # Quality Assurance
-pnpm lint             # Run linting
-pnpm format           # Format code
-pnpm type-check       # Check types
-pnpm test             # Run tests (watch mode)
-pnpm test:run         # Run tests once
-pnpm validate         # Run all validations
-pnpm verify-qa        # Verify QA setup
+lint                  # Run linting
+format                # Format code
+type-check            # Check types
+test                  # Run tests (watch mode)
+test:run              # Run tests once
+validate              # Run all validations
+verify-qa             # Verify QA setup
 ```
 
 ### 📚 Documentation
 
-- **[README_QA.md](./README_QA.md)** - QA architecture overview
-- **[QUICK_START_QA.md](./QUICK_START_QA.md)** - Daily usage guide
-- **[QA_ARCHITECTURE.md](./QA_ARCHITECTURE.md)** - Complete technical documentation
-- **[INDICE_DOCUMENTACAO.md](./INDICE_DOCUMENTACAO.md)** - Documentation index
+- **[README.md](./README.md)** - Project overview and quick start
+- **[package.json](./package.json)** - Available scripts and dependencies
+- **[`scripts/`](./scripts)** - Optional setup and verification helpers
 
 ## 🔒 Automated Validation
 
@@ -98,24 +105,24 @@ pnpm verify-qa        # Verify QA setup
 │       └── utils.test.ts
 ├── .husky/               # Git hooks
 ├── scripts/              # Utility scripts
-└── docs/                 # QA documentation
+└── README.md             # Project guide
 ```
 
 ## 🧪 Testing
 
 ```bash
-pnpm test              # Watch mode
-pnpm test:run          # Run once
-pnpm test:ui           # Visual UI
-pnpm test:coverage     # Coverage report
+npm run test
+npm run test:run
+npm run test:ui
+npm run test:coverage
 ```
 
 ## 🎯 Next Steps
 
-1. ✅ Run `bash scripts/COMANDOS_FINAIS.sh` to finalize setup
-2. ✅ Read [README_QA.md](./README_QA.md) for QA overview
-3. ✅ Start developing with `pnpm dev`
-4. ✅ Make commits - hooks will validate automatically
+1. Run `bash scripts/COMANDOS_FINAIS.sh` to finalize setup
+2. Review the available scripts in [package.json](./package.json)
+3. Start developing with the package manager of your choice
+4. Make commits and let the hooks validate the staged changes
 
 ## 📖 Learn More
 
@@ -147,8 +154,8 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - ✅ Husky hooks active
 - ✅ TypeScript strict mode enabled
 - ✅ Example tests included
-- ✅ Complete documentation
+- ✅ Starter documentation available
 
 ---
 
-**Built with quality in mind** 🛡️
+**Built as a fast starting point**
