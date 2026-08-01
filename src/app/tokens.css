@@ -1,0 +1,51 @@
+/* Hallmark · macrostructure: Marquee Hero · tone: institucional premium minimalista · anchor hue: indigo */
+
+:root {
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-geist-sans);
+  --font-outlier: var(--font-geist-mono);
+
+  --color-page: oklch(0.97 0.01 280);
+  --color-surface: oklch(0.995 0.004 290);
+  --color-surface-strong: oklch(0.93 0.015 278);
+  --color-border: oklch(0.84 0.02 275);
+  --color-ink: oklch(0.31 0.05 281);
+  --color-muted: oklch(0.5 0.025 282);
+  --color-accent: oklch(0.72 0.08 84);
+  --color-accent-strong: oklch(0.61 0.11 82);
+  --color-hero: oklch(0.29 0.07 285);
+  --color-hero-ink: oklch(0.98 0.01 280);
+  --color-hero-soft: oklch(0.88 0.018 285);
+  --color-hero-muted: oklch(0.79 0.03 287);
+  --color-hero-line: oklch(0.47 0.05 286);
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+  --text-2xl: 2.5rem;
+  --text-3xl: 3rem;
+  --text-display: clamp(3.5rem, 9vw, 8.25rem);
+
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --radius-sm: 1rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2rem;
+  --rule-soft: 1px solid var(--color-border);
+}

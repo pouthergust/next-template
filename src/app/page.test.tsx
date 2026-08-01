@@ -3,31 +3,33 @@ import { describe, it, expect } from "vitest";
 import Home from "./page";
 
 describe("Home Page", () => {
-  it("should render the page with Next.js logo", () => {
+  it("should render the Tegra hero headline", () => {
     render(<Home />);
 
-    const logo = screen.getByAltText("Next.js logo");
-    expect(logo).toBeInTheDocument();
+    const heading = screen.getByRole("heading", {
+      name: /tecnologia que simplifica o complexo/i,
+    });
+    expect(heading).toBeInTheDocument();
   });
 
-  it("should display the main instruction text", () => {
+  it("should display the impact stats section", () => {
     render(<Home />);
 
-    const instruction = screen.getByText(/Get started by editing/i);
-    expect(instruction).toBeInTheDocument();
+    const statsHeading = screen.getByRole("heading", {
+      name: /numeros que sustentam a primeira impressao/i,
+    });
+    expect(statsHeading).toBeInTheDocument();
+    expect(screen.getByText("+1800")).toBeInTheDocument();
   });
 
-  it("should have Deploy now button", () => {
+  it("should show the framework steps", () => {
     render(<Home />);
 
-    const deployButton = screen.getByText("Deploy now");
-    expect(deployButton).toBeInTheDocument();
-  });
-
-  it("should have Read our docs link", () => {
-    render(<Home />);
-
-    const docsLink = screen.getByText("Read our docs");
-    expect(docsLink).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /assessment/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /qa e validacao/i })
+    ).toBeInTheDocument();
   });
 });
