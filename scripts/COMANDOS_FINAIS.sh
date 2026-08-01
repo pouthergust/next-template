@@ -29,7 +29,7 @@ echo ""
 
 # 3. Inicializar Husky
 echo -e "${BLUE}3/4${NC} Inicializando Husky..."
-pnpm prepare
+npx --no-install husky
 echo -e "${GREEN}✓${NC} Husky inicializado"
 echo ""
 
@@ -45,15 +45,15 @@ else
     echo ""
     
     echo "Type-check..."
-    pnpm type-check
+    npx --no-install tsc --noEmit
     echo ""
     
     echo "Linting..."
-    pnpm lint
+    npx --no-install eslint .
     echo ""
     
     echo "Testes..."
-    pnpm test:run
+    npx --no-install vitest run
     echo ""
 fi
 
@@ -63,8 +63,8 @@ echo -e "${GREEN}✅ Setup finalizado com sucesso!${NC}"
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "📚 Próximos passos:"
-echo "  1. Leia README_QA.md para visão geral"
-echo "  2. Execute 'pnpm dev' para iniciar desenvolvimento"
+echo "  1. Leia README.md para visão geral"
+echo "  2. Execute o script 'dev' com o gerenciador de pacotes de sua preferência"
 echo "  3. Faça commits normalmente - os hooks cuidarão da qualidade"
 echo ""
 echo "🎉 Você está pronto para desenvolver com qualidade garantida!"

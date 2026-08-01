@@ -49,7 +49,7 @@ check_file ".husky/pre-push"
 echo ""
 
 echo "📦 Verificando dependências..."
-check_command "pnpm"
+check_command "node"
 echo ""
 
 echo "🔧 Verificando scripts no package.json..."
@@ -104,7 +104,7 @@ echo "🚀 Executando validações..."
 echo ""
 
 echo "1️⃣ Type-check..."
-if pnpm type-check; then
+if npx --no-install tsc --noEmit; then
     echo -e "${GREEN}✓${NC} Type-check passou"
 else
     echo -e "${RED}✗${NC} Type-check falhou"
@@ -113,7 +113,7 @@ fi
 echo ""
 
 echo "2️⃣ Linting..."
-if pnpm lint; then
+if npx --no-install eslint .; then
     echo -e "${GREEN}✓${NC} Linting passou"
 else
     echo -e "${RED}✗${NC} Linting falhou"
@@ -122,15 +122,15 @@ fi
 echo ""
 
 echo "3️⃣ Formatação..."
-if pnpm format:check; then
+if npx --no-install prettier --check .; then
     echo -e "${GREEN}✓${NC} Formatação está correta"
 else
-    echo -e "${YELLOW}⚠${NC} Arquivos precisam ser formatados (execute: pnpm format)"
+    echo -e "${YELLOW}⚠${NC} Arquivos precisam ser formatados (execute o script 'format' com o gerenciador de sua preferência)"
 fi
 echo ""
 
 echo "4️⃣ Testes..."
-if pnpm test:run; then
+if npx --no-install vitest run; then
     echo -e "${GREEN}✓${NC} Todos os testes passaram"
 else
     echo -e "${RED}✗${NC} Alguns testes falharam"
@@ -143,7 +143,7 @@ echo -e "${GREEN}✅ Arquitetura de QA configurada com sucesso!${NC}"
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "📚 Próximos passos:"
-echo "  • Execute 'pnpm dev' para iniciar o desenvolvimento"
+echo "  • Execute o script 'dev' com o gerenciador de pacotes de sua preferência"
 echo "  • Os hooks serão executados automaticamente nos commits/pushes"
-echo "  • Leia QA_ARCHITECTURE.md para mais detalhes"
+echo "  • Consulte README.md e package.json para mais detalhes"
 echo ""
